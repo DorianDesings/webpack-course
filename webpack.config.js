@@ -15,10 +15,10 @@ module.exports = {
                 }
             },
             {
-                test: /\.html$/,
+                test: /\.pug$/,
                 use: [
                     {
-                        loader: 'html-loader',
+                        loader: 'pug-loader',
                         options: { minimize: true }
                     }
                 ]
@@ -107,7 +107,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/template.html',
+            template: './src/views/index.pug',
             file: './index.html'
         })
 
