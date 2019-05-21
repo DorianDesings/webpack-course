@@ -10,7 +10,6 @@ const otherConfig = require('./webpack/other.config')
 
 const rules = [jsConfig, pugConfig, cssSassConfig, imagesConfig, otherConfig]
 
-
 module.exports = {
     devtool: 'source-map',
     module: { rules },
