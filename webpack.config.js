@@ -9,17 +9,17 @@ const imagesConfig = require('./webpack-config/images.congif')
 const jsonConfig = require('./webpack-config/json.config')
 const otherConfig = require('./webpack-config/other.config')
 
-const rules = [jsConfig, pugConfig, cssSassConfig, imagesConfig, jsonConfig, otherConfig]
+const rules = [jsConfig, pugConfig.rules, cssSassConfig, imagesConfig, jsonConfig, otherConfig]
 
 module.exports = {
-    devtool: 'source-map',
+    entry: {
+        app: './src/index.js'
+    },
     module: { rules },
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
-        new HtmlWebpackPlugin({
-            template: './src/views/index.pug',
-            file: './index.html'
-        })
-    ]
+        new HtmlWebpackPlugin()
+    ].concat(pugConfig.multilpePages)
 }
+
